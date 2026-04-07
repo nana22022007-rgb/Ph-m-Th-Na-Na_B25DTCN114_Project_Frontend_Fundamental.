@@ -63,7 +63,13 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function getPaginationRange(current, total) {
-        if (total <= 7) return Array.from({ length: total }, (_, i) => i + 1);
+        if (total <= 7) {
+            let range = [];
+            for (let i = 1; i <= total; i++) {
+                range.push(i);
+            }
+            return range;
+        }
         if (current <= 4) return [1, 2, 3, 4, 5, '...', total];
         if (current >= total - 3) return [1, '...', total - 4, total - 3, total - 2, total - 1, total];
         return [1, '...', current - 1, current, current + 1, '...', total];
@@ -81,7 +87,11 @@ document.addEventListener('DOMContentLoaded', function () {
         paginationContainer.style.display = 'flex';
 
         const prevBtn = document.createElement('button');
-        prevBtn.className = `p-btn ${currentPage === 1 ? 'disabled' : ''}`;
+        if (currentPage === 1) {
+            prevBtn.className = "p-btn disabled";
+        } else {
+            prevBtn.className = "p-btn";
+        }
         prevBtn.innerHTML = "&lt;";
         prevBtn.onclick = () => { if (currentPage > 1) { currentPage--; renderProjects(); } };
         paginationContainer.appendChild(prevBtn);
@@ -94,7 +104,11 @@ document.addEventListener('DOMContentLoaded', function () {
                 paginationContainer.appendChild(dots);
             } else {
                 const pageBtn = document.createElement('button');
-                pageBtn.className = `p-btn ${page === currentPage ? 'active' : ''}`;
+                if (page === currentPage) {
+                    pageBtn.className = "p-btn active";
+                } else {
+                    pageBtn.className = "p-btn";
+                }
                 pageBtn.innerText = page;
                 pageBtn.onclick = () => { currentPage = page; renderProjects(); };
                 paginationContainer.appendChild(pageBtn);
@@ -102,7 +116,11 @@ document.addEventListener('DOMContentLoaded', function () {
         });
 
         const nextBtn = document.createElement('button');
-        nextBtn.className = `p-btn ${currentPage === totalPages ? 'disabled' : ''}`;
+        if (currentPage === totalPages) {
+            nextBtn.className = "p-btn disabled";
+        } else {
+            nextBtn.className = "p-btn";
+        }
         nextBtn.innerHTML = "&gt;";
         nextBtn.onclick = () => { if (currentPage < totalPages) { currentPage++; renderProjects(); } };
         paginationContainer.appendChild(nextBtn);
@@ -123,15 +141,16 @@ document.addEventListener('DOMContentLoaded', function () {
         const trimmedDesc = desc.trim();
         if (trimmedName === "") return { field: "name", message: "Tên dự án không được để trống!" };
         if (trimmedName.length < 5 || trimmedName.length > 50) return { field: "name", message: "Tên dự án phải từ 5 đến 50 ký tự!" };
+        const isDuplicate = projects.some(p => p.projectName.trim().toLowerCase() === trimmedName.toLowerCase() && p.id !== editId);
+        if (isDuplicate) return { field: "name", message: "Tên dự án này đã tồn tại rồi" };
         if (trimmedDesc === "") return { field: "desc", message: "Mô tả dự án không được để trống!" };
         if (trimmedDesc.length < 10 || trimmedDesc.length > 200) return { field: "desc", message: "Mô tả phải từ 10 đến 200 ký tự!" };
 
-        const isDuplicate = projects.some(p => p.projectName.trim().toLowerCase() === trimmedName.toLowerCase() && p.id !== editId);
-        if (isDuplicate) return { field: "name", message: "Tên dự án này đã tồn tại rồi" };
         return null;
     }
 
     // 4. EVENTS
+    // tìm kiếm
     document.querySelector('.section-1 input').addEventListener('input', function (e) {
         currentPage = 1;
         const searchTerm = e.target.value.toLowerCase();
@@ -249,7 +268,7 @@ document.addEventListener('DOMContentLoaded', function () {
         if (event.target === logoutModal) logoutModal.classList.remove('modal-open');
     };
 
-    // XỬ LÝ ĐĂNG XUẤT (FIXED)
+    // XỬ LÝ ĐĂNG XUẤT 
     const logoutTriggers = document.querySelectorAll('.btn-trigger-logout');
     if (logoutTriggers.length > 0) {
         logoutTriggers.forEach(btn => {
