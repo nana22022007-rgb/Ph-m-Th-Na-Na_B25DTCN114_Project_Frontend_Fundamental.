@@ -9,6 +9,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // Tìm dự án hiện tại
   let currentProjectIndex = projects.findIndex((p) => p.id === projectId);
   if (currentProjectIndex === -1) {
+    alert("Không tìm thấy dự án!");
     window.location.href = "project-manager.html";
     return;
   }
@@ -108,6 +109,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   // 3. TÍNH NĂNG QUẢN LÝ THÀNH VIÊN (MỚI)
+  // Màu sắc ngẫu nhiên cho Avatar
   const colors = ["bg-blue", "bg-purple", "bg-orange", "bg-gray"];
 
   function renderMembers() {
@@ -136,7 +138,6 @@ document.addEventListener("DOMContentLoaded", function () {
                     </div>
                 </div>`;
       }
-
       // Render trong Modal danh sách
       const isOwner = member.role === "Project owner";
       editHTML += `
@@ -241,32 +242,62 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   // B. SỬA VÀ TRỰC TIẾP XÓA THÀNH VIÊN TRONG MODAL LIST
-  document
-    .querySelector(".members-edit-list")
-    .addEventListener("change", (e) => {
-      // Cập nhật vai trò khi gõ xong (on blur/change)
-      if (e.target.classList.contains("input-role")) {
-        const newRole = e.target.value.trim();
-        if (newRole.length < 3) {
-          alert("Vai trò phải lớn hơn 3 ký tự!");
-          renderMembers(); // Reset lại nếu lỗi
-          return;
+// 1. Xóa cảnh báo ngay khi người dùng bắt đầu gõ lại
+document.querySelector(".members-edit-list").addEventListener("input", (e) => {
+    if (e.target.classList.contains("input-role")) {
+        e.target.classList.remove("input-error"); // Xóa viền đỏ
+        const errorSpan = e.target.nextElementSibling;
+        if (errorSpan && errorSpan.classList.contains("error-text")) {
+            errorSpan.style.display = "none"; // Ẩn chữ đỏ
         }
-        const userId = Number(
-          e.target.closest(".member-edit-item").dataset.userid,
-        );
-        const memberIndex = currentProject.members.findIndex(
-          (m) => m.userId === userId,
-        );
+    }
+});
+
+// 2. Kiểm tra và lưu khi gõ xong (on blur/change)
+document.querySelector(".members-edit-list").addEventListener("change", (e) => {
+    if (e.target.classList.contains("input-role")) {
+        const inputEl = e.target;
+        const newRole = inputEl.value.trim();
+
+        // Tìm thẻ span lỗi hiện tại, nếu chưa có thì tạo mới
+        let errorSpan = inputEl.nextElementSibling;
+        if (!errorSpan || !errorSpan.classList.contains('error-text')) {
+            errorSpan = document.createElement('span');
+            errorSpan.className = 'error-text';
+            errorSpan.style.color = '#DC3545'; // Màu đỏ
+            errorSpan.style.fontSize = '12px';
+            errorSpan.style.marginTop = '4px';
+            errorSpan.style.display = 'block';
+            inputEl.parentNode.insertBefore(errorSpan, inputEl.nextSibling); // Chèn ngay sau input
+        }
+
+        // Nếu nhập lỗi
+        if (newRole.length < 3) {
+            inputEl.classList.add('input-error'); // Thêm viền đỏ
+            errorSpan.innerText = "Vai trò phải có ít nhất 3 ký tự!";
+            errorSpan.style.display = "block";
+            return; // Dừng hàm lại, giữ nguyên ô input cho người dùng sửa
+        }
+
+        // Nếu hợp lệ: Xóa trạng thái lỗi (phòng hờ)
+        inputEl.classList.remove('input-error');
+        errorSpan.style.display = "none";
+
+        // Logic lưu vào localStorage
+        const userId = Number(e.target.closest(".member-edit-item").dataset.userid);
+        const memberIndex = currentProject.members.findIndex((m) => m.userId === userId);
 
         if (memberIndex !== -1) {
-          currentProject.members[memberIndex].role = newRole;
-          projects[currentProjectIndex] = currentProject;
-          localStorage.setItem("projects", JSON.stringify(projects));
-          renderMembers(); // Render lại phần hiển thị Top
+            currentProject.members[memberIndex].role = newRole;
+            projects[currentProjectIndex] = currentProject;
+            localStorage.setItem("projects", JSON.stringify(projects));
+            
+            // LƯU Ý: Chỉ render lại nếu bạn muốn cập nhật mảng "Thành viên" phía trên (Top bar).
+            // Nếu gọi renderMembers() nó sẽ reset lại cấu trúc thẻ input bên dưới.
+            renderMembers(); 
         }
-      }
-    });
+    }
+});
 
   document
     .querySelector(".members-edit-list")
