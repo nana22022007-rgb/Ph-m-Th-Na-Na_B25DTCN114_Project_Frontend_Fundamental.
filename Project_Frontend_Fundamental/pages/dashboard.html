@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nhiệm vụ của tôi</title>
+    <script src="../js/auth.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/dashboard.css">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <h3>Quản Lý Dự Án</h3>
+            <nav>
+                <a href="./project-manager.html">Dự Án</a>
+                <a href="./dashboard.html" class="active">Nhiệm Vụ của tôi</a>
+                <a href="./login.html" class="btn-logout">Đăng Xuất</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="main-card">
+            <div class="actions-toolbar">
+                <h1>Quản lý nhiệm vụ</h1>
+                <div class="filters-search-group">
+                    <select class="select-filter">
+                        <option>Sắp xếp theo</option>
+                    </select>
+                    <input type="text" placeholder="Tìm kiếm nhiệm vụ">
+                </div>
+            </div>
+
+            <div class="task-list-container">
+                <h3>Danh sách nhiệm vụ</h3>
+                <table class="task-grid-table" id="myTaskTable">
+                    <thead>
+                        <tr>
+                            <th class="col-task-name">Tên Nhiệm Vụ</th>
+                            <th class="col-priority">Độ ưu tiên</th>
+                            <th class="col-status">Trạng thái</th>
+                            <th class="col-date">Ngày Bắt Đầu</th>
+                            <th class="col-date">Hạn Chót</th>
+                            <th class="col-progress">Tiến độ</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="group-header-row" data-project="web-ecommerce">
+                            <td colspan="6">▼ Xây dựng website thương mại điện tử</td>
+                        </tr>
+                        <tr class="task-row" data-parent="web-ecommerce">
+                            <td class="text-left">Soạn thảo đề cương dự án</td>
+                            <td><span class="badge badge-priority-low">Thấp</span></td>
+                            <td class="status-cell">In progress <span class="edit-icon"><img src="../assets/images/Vector (1).png" alt=""></span></td>
+                            <td class="date">02 - 24</td>
+                            <td class="date">02 - 27</td>
+                            <td><span class="badge badge-progress-ontrack">Đúng tiến độ</span></td>
+                        </tr>
+                        <tr class="task-row" data-parent="web-ecommerce">
+                            <td class="text-left">Soạn thảo đề cương dự án</td>
+                            <td><span class="badge badge-priority-medium">Trung bình</span></td>
+                            <td class="status-cell">In progress <span class="edit-icon"><img src="../assets/images/Vector (1).png" alt=""></span></td>
+                            <td class="date">02 - 24</td>
+                            <td class="date">02 - 27</td>
+                            <td><span class="badge badge-progress-atrisk">Có rủi ro</span></td>
+                        </tr>
+                        <tr class="task-row" data-parent="web-ecommerce">
+                            <td class="text-left">Soạn thảo đề cương dự án</td>
+                            <td><span class="badge badge-priority-danger">Cao</span></td>
+                            <td class="status-cell">In progress <span class="edit-icon"><img src="../assets/images/Vector (1).png" alt=""></span></td>
+                            <td class="date">02 - 24</td>
+                            <td class="date">02 - 27</td>
+                            <td><span class="badge badge-progress-danger">Trễ hạn</span></td>
+                        </tr>
+
+                        <tr class="group-header-row" data-project="mobile-app">
+                            <td colspan="6">▼ Phát triển ứng dụng di động</td>
+                        </tr>
+                        <tr class="task-row" data-parent="mobile-app">
+                            <td class="text-left">Lên lịch họp kickoff</td>
+                            <td><span class="badge badge-priority-low">Thấp</span></td>
+                            <td class="status-cell">In progress <span class="edit-icon"><img src="../assets/images/Vector (1).png" alt=""></span></td>
+                            <td class="date">02 - 24</td>
+                            <td class="date">02 - 27</td>
+                            <td><span class="badge badge-progress-atrisk">Có rủi ro</span></td>
+                        </tr>
+
+                        <tr class="group-header-row collapsed" data-project="data-customer">
+                            <td colspan="6">▶ Quản lý dữ liệu khách hàng</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2025 Quản Lý Dự Án Nhóm. All rights reserved.</p>
+    </footer>
+
+    <script src="../js/dashboard.js"></script>
+    <script src="../js/common.js"></script>
+</body>
+</html>

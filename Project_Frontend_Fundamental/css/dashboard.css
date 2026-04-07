@@ -1,0 +1,205 @@
+/* Kế thừa các style cơ bản */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Roboto", sans-serif;
+    background-color: #F8F9FA;
+    color: #212529;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    background-color: #212529;
+    padding: 10px 0;
+}
+
+.header-container {
+    max-width: 1300px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 20px;
+    align-items: center;
+}
+
+.header-container h3 {
+    color: white;
+    font-weight: 400;
+    font-size: 19.74px;
+}
+nav a {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    font-size: 15.78px;
+    margin-left: 15px;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: white;
+}
+
+nav a.active {
+    color: white;
+    font-weight: 500;
+}
+
+.main-card {
+    max-width: 1296px;
+    margin: 20px auto;
+    width: 95%;
+}
+
+/* Toolbar */
+.actions-toolbar {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+.actions-toolbar h1{
+    font-weight: 500;
+    font-size: 23.47px;
+
+}
+.actions-toolbar .filters-search-group{
+    margin-top: 35px;
+}
+
+.filters-search-group {
+    display: flex;
+    gap: 10px;
+}
+
+.select-filter,
+.filters-search-group input {
+    padding: 8px 12px;
+    border: 1px solid #DEE2E6;
+    border-radius: 6px;
+    outline: none;
+    font-size: 15.79px;
+}
+.filters-search-group input{
+    color: #A9A9A9;
+}
+/* Table Style */
+.task-list-container {
+    background: white;
+    border: 1px solid #0000002D;
+    border-radius: 6px;
+    box-shadow: 0 5px 5px #00000033;
+    overflow: hidden;
+}
+
+.task-list-container h3 {
+    padding:17px 17px 8px 17px;
+    font-size: 19.72px;
+    color: #212529;
+    font-weight: 500;
+    border-bottom: 1px solid #eee;
+}
+
+.task-grid-table {
+    width: calc(100% - 40px);
+    margin: 0 17px 60px 17px;
+    border-collapse: collapse;
+    border: 1px solid #DEE2E6;
+}
+
+.task-grid-table th {
+    background-color:#F8F9FA;
+    padding: 12px;
+    text-align: center;
+    border: 1px solid #DFE0E1;
+    font-size: 15.36px;
+    border-bottom: none;
+    font-weight: 800;
+}
+
+.task-grid-table td {
+    padding: 12px;
+    border: 1px solid #DFE0E1;
+    text-align: center;
+    font-size: 13.5px;
+}
+
+/* Group Header (Tên dự án) */
+.group-header-row td {
+    text-align: left !important;
+    background-color: #fff !important;
+    font-weight: 800;
+    font-size: 16.11px;
+    cursor: pointer;
+    /* user-select: none; */
+    border: 1px solid #DEE2E6;
+}
+
+.group-header-row:hover {
+    background-color: #f9f9f9 !important;
+}
+
+/* Trạng thái và Icon sửa */
+.status-cell {
+    position: relative;
+}
+
+.edit-icon {
+    margin-left: 8px;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+/* Badge Colors */
+.badge {
+    padding: 3px 8px;
+    border-radius: 6px;
+    font-size: 11.5px;
+    font-weight: 800;
+    color: white;
+    display: inline-block;
+}
+
+.badge-priority-low {
+    background-color: #00CFE8;
+}
+
+.badge-priority-medium {
+    background-color: #FF9F43;
+}
+
+.badge-progress-ontrack {
+    background-color: #198754;
+}
+
+.badge-progress-atrisk {
+    background-color: #FF9F43;
+}
+.badge-priority-danger,
+.badge-progress-danger{
+    background-color: #DC3545;
+}
+
+.date {
+    color: #0D6EFD;
+    font-weight: 400;
+    font-size: 17.23px;
+}
+
+.text-left {
+    text-align: left !important;
+    padding-left: 20px !important;
+}
+
+footer {
+    background-color: #212529;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    margin-top: auto;
+    font-size: 16px;
+}

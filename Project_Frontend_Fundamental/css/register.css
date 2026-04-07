@@ -1,0 +1,121 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    background-color: #F8FAFC;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: 100vh;
+}
+
+.header {
+    text-align: center;
+    max-width: 636px;
+    width: 90%;
+    margin-top: 60px;
+}
+
+.header h1 {
+    font-weight: 600;
+    font-style: normal;
+    font-size: 52px;
+    color: #090914;
+    margin-bottom: 20px;
+}
+.register-card {
+    background-color: #ffffff;
+    width: 100%;
+    max-width: 500px;
+    padding: 20px 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+
+}
+
+.form-group {
+    margin-bottom: 24px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 16px 20px;
+    border: 1px solid #E4E4E7;
+    border-radius: 12px;
+    font-size: 14px;
+    outline: none;
+    transition: all 0.3s ease;
+    margin: 5px 0;
+}
+
+.form-group .input-center {
+    text-align: center;
+}
+
+.form-group input:focus {
+    border-color: #2563EB;
+    box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1);
+}
+
+.btn-register {
+    width: 100%;
+    padding: 16px;
+    background-color: #0D6EFD;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    margin-top: 40px;
+    
+}
+
+.btn-register:hover {
+    background-color: #0052cc;
+}
+
+.signup-link {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 14px;
+    color: #64748B;
+}
+
+.signup-link a {
+    color: #0066FF;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.signup-link a:hover {
+    text-decoration: underline;
+}
+
+.error-message {
+    color: #ff4d4d;
+    font-size: 13px;
+    margin-top: 5px;
+    display: block;
+    text-align: left;
+    padding-left: 10px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+/* lỗi */
+.input-error {
+    border-color: #ff4d4d !important;
+    background-color: #fff5f5 !important;
+}
+input {
+    transition: all 0.3s ease;
+}

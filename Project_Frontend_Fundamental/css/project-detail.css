@@ -1,0 +1,719 @@
+/* GLOBAL STYLES */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Roboto", sans-serif;
+    background-color: #F8F9FA;
+    color: #212529;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* HEADER & FOOTER */
+header {
+    background-color: #212529;
+    height: 48px;
+    display: flex;
+    align-items: center;
+}
+
+.header-container {
+    max-width: 1300px;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 10px;
+}
+
+.header-container h3 {
+    color: white;
+    font-weight: 400;
+    font-size: 19.74px;
+}
+
+nav a {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    font-size: 15.78px;
+    margin-left: 15px;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: white;
+}
+
+footer {
+    background-color: #212529;
+    color: rgba(255, 255, 255, 0.8);
+    text-align: center;
+    padding: 15px 0;
+    margin-top: auto;
+    font-size: 15px;
+}
+
+/* MAIN CARD */
+main {
+    padding: 0 40px;
+}
+
+.main-card {
+    max-width: 1296px;
+    margin: 0 auto;
+}
+
+.project-header-info {
+    display: flex;
+    justify-content: space-between;
+    padding: 30px 10px;
+    border-bottom: none;
+}
+
+.project-title-desc {
+    width: 50%;
+}
+
+.project-title-desc h2 {
+    font-size: 23.54px;
+    font-weight: 500;
+    padding-bottom: 10px;
+}
+
+.project-title-desc p {
+    font-size: 15.99px;
+    color: #212529;
+    line-height: 24px;
+    font-weight: 400;
+}
+
+/* Members Section */
+.members-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.members-top h4 {
+    font-size: 19px;
+    font-weight: 500;
+    color: #212529;
+}
+
+.btn-outline {
+    border: 1px solid #6C757D;
+    background: white;
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-size: 13px;
+    cursor: pointer;
+    color: #6C757D;
+    transition: 0.2s ease;
+}
+
+.btn-outline:hover {
+    background-color: #6C757D;
+    color: white;
+}
+
+.members-list {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.member-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.member-info-text {
+    display: flex;
+    flex-direction: column;
+    font-size: 13.65px;
+    line-height: 1.4;
+}
+
+.member-info-text span {
+    color: #888;
+    font-size: 11px;
+}
+.more-dots {
+    background-color: #E2E3E5;
+    color: black;
+    font-size: 25px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 0;
+    padding-bottom: 12px;
+    transition: 0.2s;
+}
+
+.more-dots:hover {
+    background-color: #d1d2d4;
+}
+
+/* TOOLBAR */
+.actions-toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+}
+
+.btn-add-task {
+    background-color: #0D6EFD;
+    color: white;
+    border: none;
+    padding: 10px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 15.81px;
+    font-weight: 400;
+    transition: 0.2s;
+}
+
+.btn-add-task:hover {
+    background-color: #0b5ed7;
+    box-shadow: 0 4px 12px rgba(13, 110, 253, 0.3);
+}
+
+.filters-search-group {
+    display: flex;
+    gap: 10px;
+}
+
+.select-filter,
+.filters-search-group input {
+    color: black;
+    font-size: 15px;
+    font-weight: 400;
+    padding: 8px 12px;
+    border: 1px solid #DEE2E6;
+    border-radius: 6px;
+    outline: none;
+}
+
+.filters-search-group input {
+    color: #A9A9A9;
+    width: 220px;
+}
+
+/* TASK TABLE */
+.task-list-container {
+    max-width: 1296px;
+    margin: 0 auto;
+    background: white;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 6px;
+    padding-bottom: 25px;
+    box-shadow: 0 5px 5px #00000033;
+    overflow-x: auto; /* Giúp bảng không bị tràn khung trên mobile */
+}
+
+.task-list-container h3 {
+    padding: 13px 17px 8px 17px;
+    font-size: 19px;
+    font-weight: 500;
+}
+
+table.task-grid-table {
+    border-collapse: collapse;
+    border: 1px solid #DEE2E6;
+    /* min-width: 800px; */
+    table-layout: fixed;
+    width: 100%;
+    margin: 0;
+}
+
+.task-grid-table th {
+    background-color: #F8F9FA;
+    color: #000000;
+    padding: 12px 10px;
+    font-weight: 800;
+    font-size: 15.36px;
+    border-bottom: 1px solid #DEE2E6;
+    border-right: 1px solid #DEE2E6;
+}
+
+.task-grid-table td {
+    padding: 12px 10px;
+    border-bottom: 1px solid #DEE2E6;
+    border-right: 1px solid #DEE2E6;
+    text-align: center;
+    font-size: 13px;
+    color: #444;
+}
+
+/* Hover hiệu ứng cho hàng trong bảng */
+.task-grid-table tbody tr:not(.group-header-row):hover {
+    background-color: #fcfcfc;
+}
+
+tr.group-header-row td {
+    background-color: white;
+    color: #212529;
+    font-weight: 800;
+    text-align: left;
+    padding-left: 20px;
+    cursor: pointer;
+}
+
+.text-left {
+    text-align: left !important;
+    padding-left: 15px !important;
+}
+
+.col-task-name {
+    width: 30%;
+}
+
+.col-assignee {
+    width: 15%;
+}
+
+.col-actions {
+    width: 12%;
+    border-right: none !important;
+}
+
+.task-grid-table th:last-child {
+    border-right: none;
+}
+
+/* BADGES - Gom nhóm code lặp */
+.badge {
+    padding: 3px 7px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 800;
+    display: inline-block;
+    color: white !important;
+}
+
+/* Màu sắc cho từng loại Badge (Không lặp lại style chung) */
+.badge-priority-low {
+    background-color: #00CFE8;
+}
+
+.badge-priority-medium,
+.badge-progress-atrisk {
+    background-color: #FF9F43;
+}
+
+.badge-priority-high,
+.badge-progress-late {
+    background-color: #EA5455;
+}
+
+.badge-progress-ontrack {
+    background-color: #198754;
+}
+
+.bg-blue {
+    background-color: #0D6EFD;
+    font-weight: 300;
+    font-size: 14.37px;
+}
+
+.bg-purple {
+    background-color: #6F42C1;
+    font-weight: 300;
+    font-size: 14.37px;
+}
+
+.bg-gray {
+    background-color: #E9ECEF;
+    color: #444;
+}
+
+/* Nút hành động */
+.btn-icon-action {
+    border: none;
+    padding: 7px 8px;
+    border-radius: 4px;
+    color: white;
+    font-size: 14.12px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.btn-icon-action:hover {
+    opacity: 0.8;
+    transform: scale(1.05);
+}
+
+.btn-edit {
+    background-color: #FFC107;
+    color: #212529;
+}
+
+.btn-delete {
+    background-color: #DC3545;
+}
+
+.task-grid-table td.date {
+    color: #0D6EFD !important;
+    font-weight: 400;
+    font-size: 16.5px;
+}
+
+/* PAGINATION */
+.pagination-container {
+    display: flex;
+    justify-content: flex-end;
+    padding: 20px 25px;
+}
+
+.pagination {
+    display: flex;
+    border: 1px solid #DEE2E6;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.pagination a {
+    padding: 8px 16px;
+    text-decoration: none;
+    color: #0D6EFD;
+    border-right: 1px solid #DEE2E6;
+    background-color: white;
+    font-size: 14px;
+    transition: 0.2s;
+}
+
+.pagination a:hover:not(.active) {
+    background-color: #F8F9FA;
+}
+
+.pagination a.active {
+    background-color: #0D6EFD;
+    color: white;
+    border-color: #0D6EFD;
+}
+
+/* MODAL STYLES */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: none;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 30px;
+    z-index: 1000;
+    backdrop-filter: blur(2px);
+}
+
+.modal-overlay.active {
+    display: flex !important;
+}
+
+.modal-card {
+    background: white;
+    width: 440px;
+    border-radius: 8px;
+    box-shadow: 0 20px 24px #10182814;
+    animation: fadeInDown 0.3s ease-out;
+    overflow: hidden;
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 13px 20px;
+    border-bottom: 1px solid #DEE2E6;
+}
+
+.modal-header h3 {
+    font-size: 23.3px;
+    font-weight: 500;
+}
+
+.close-modal {
+    font-size: 40px;
+    cursor: pointer;
+    color: #818181;
+    line-height: 1;
+    transition: 0.2s;
+}
+
+.close-modal:hover {
+    color: #333;
+}
+
+.modal-body {
+    padding: 10px 20px;
+    color: #344054;
+    font-size: 15px;
+}
+.modal-body p{
+    padding-bottom: 20px;
+}
+
+.modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 18px;
+    padding: 30px 20px 10px 20px;
+    background-color: white;
+    border-top: 1px solid #DEE2E6;
+}
+
+.form-group-modal {
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.form-group-modal label {
+    font-size: 16px;
+    font-weight: 500;
+    color: #344054;
+}
+
+.form-group-modal input,
+.form-group-modal select {
+    padding: 10px 12px;
+    border: 1px solid #D0D5DD;
+    border-radius: 8px;
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.form-group-modal input:focus,
+.form-group-modal select:focus {
+    border-color: #0D6EFD;
+}
+
+/* NÚT BẤM TRONG MODAL - Gom nhóm style chung */
+.btn-cancel,
+.btn-confirm,
+.btn-delete-confirm {
+    padding: 7px 15px;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    border: none;
+    transition: all 0.2s ease;
+}
+
+.btn-cancel {
+    background: #6C757D;
+    color: white;
+    border: 1px solid #D0D5DD;
+}
+
+.btn-cancel:hover {
+    background-color: #5a6268;
+}
+
+.btn-confirm {
+    background: #0D6EFD;
+    color: white;
+    border: 1px solid #0D6EFD;
+}
+
+.btn-confirm:hover {
+    background-color: #0b5ed7;
+}
+
+.btn-delete-confirm {
+    background-color: #DC3545;
+    color: white;
+}
+
+.btn-delete-confirm:hover {
+    background-color: #C82333;
+}
+
+.btn-cancel:active,
+.btn-confirm:active,
+.btn-delete-confirm:active {
+    transform: scale(0.96);
+}
+/* chỉnh mục thành viên */
+/* MODAL THÀNH VIÊN */
+ 
+.members-edit-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.member-edit-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 10px;
+    /* border-radius: 8px; */
+    background-color: white;
+}
+
+.member-info-group {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 50%;
+}
+
+.member-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.member-text p {
+    margin: 0;
+    font-weight: 400;
+    font-size: 16px;
+    color: #212529;
+    padding-bottom: 0 !important;
+}
+
+.member-text span {
+    font-size: 14px;
+    color: #212529BF;
+}
+
+.member-role-select {
+    width: 27%;
+    margin-left: 30px;
+    /* height: 26px; */
+}
+
+.member-role-select input {
+    width: 100%;
+    padding: 5px 0;
+    border: 1px solid #D0D5DD;
+    border-radius: 3px;
+    font-size: 12px;
+    background: white;
+    margin-left: 20px;
+}
+
+/* Avatar colors */
+.avatar.bg-purple{
+    background-color: #800080;
+}
+
+.avatar.bg-orange {
+    background-color: #FFA500;
+}
+
+.modal-header.lower h3{
+    font-weight: 400;
+    font-size: 20px;
+}
+.title-lower span{
+    font-size: 20px;
+    font-weight: 400;
+    color: #212529;
+    text-align: center;
+}
+.icon-delete {
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: 0.2s;
+    opacity: 0.6;
+}
+
+.icon-delete:hover {
+    opacity: 1;
+    transform: scale(1.1);
+    color: var(--danger-color);
+}
+
+.icon-delete {
+    opacity: 0.8;
+    transform: scale(1.05);
+}
+
+/* them thanh vien */
+.form-group-modal input.input-error {
+    border-color: #DC3545;
+}
+
+.form-group-modal input.input-error:focus {
+    border-color: #DC3545;
+    box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);
+}
+
+.error-text {
+    color: #DC3545;
+    font-size: 12px;
+    margin-top: 4px;
+}
+.form-group-modal .gray{
+    color: #344054;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+/* Mặc định ẩn */
+#logoutModal {
+    display: none; 
+    position: fixed;
+    /* ... các thuộc tính khác ... */
+}
+
+/* Hiện khi có class active */
+#logoutModal.active {
+    display: flex !important; /* Dùng flex để căn giữa modal-card */
+}
+/* Phải có đoạn này thì các dòng mới biến mất được */
+.row-hidden {
+    display: none !important;
+}
+
+/* Thêm hiệu ứng con trỏ để người dùng biết là bấm được vào header */
+.group-header-row {
+    cursor: pointer;
+    user-select: none;
+    background-color: #f9f9f9;
+}
+.group-header-row:hover {
+    background-color: #f0f0f0;
+}

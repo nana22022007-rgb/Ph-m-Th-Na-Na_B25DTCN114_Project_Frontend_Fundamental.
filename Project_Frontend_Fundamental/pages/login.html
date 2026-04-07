@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Đăng nhập</title>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="stylesheet" href="../css/login.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="header">
+      <h1>Đăng nhập</h1>
+    </div>
+
+    <div class="login-card">
+      <form id="loginForm">
+        <div class="form-group">
+          <label for="">Email</label>
+          <input
+            type="email"
+            id="email"
+            placeholder="Địa chỉ email"
+            class="input-center"
+          />
+          <span class="error-message" id="loginEmailError"></span>
+        </div>
+        <div class="form-group">
+          <label for="">Mật khẩu</label>
+          <input
+            type="password"
+            id="password"
+            placeholder="Mật khẩu"
+            class="input-center"
+          />
+          <span class="error-message" id="loginPassError"></span>
+        </div>
+        <button type="submit" class="btn-login">Đăng nhập</button>
+        <p class="signup-link">
+          Chưa có tài khoản? <a href="../register.html">Đăng Ký</a>
+        </p>
+      </form>
+    </div>
+    <script src="../js/data.js"></script>
+    <script src="../js/login.js"></script>
+  </body>
+</html>
