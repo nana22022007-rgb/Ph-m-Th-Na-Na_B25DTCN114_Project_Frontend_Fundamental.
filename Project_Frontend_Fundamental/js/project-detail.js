@@ -541,6 +541,33 @@ document.querySelector(".members-edit-list").addEventListener("change", (e) => {
     ) {
       closeModal();
     }
+     // 1. MỞ MODAL ĐĂNG XUẤT
+    if (target.classList.contains("btn-open-logout")) {
+      const logoutModal = document.getElementById("logoutModal");
+      if (logoutModal) openModal(logoutModal);
+      return;
+    }
+
+    // 2. XÁC NHẬN ĐĂNG XUẤT
+    if (target.id === "btnConfirmLogout") {
+      // Xóa toàn bộ dấu vết đăng nhập
+      localStorage.removeItem("isLoggedIn");
+      localStorage.removeItem("currentUser");
+
+      // Chuyển hướng về trang đăng nhập
+      window.location.href = "login.html";
+      return;
+    }
+
+    // ... (Logic Đóng Modals ở cuối giữ nguyên) ...
+    if (
+      target.classList.contains("close-modal") ||
+      target.classList.contains("btn-cancel") ||
+      (target.classList.contains("modal-overlay") &&
+        !target.closest(".modal-card"))
+    ) {
+      closeModal();
+    }
   });
 
   // --- LƯU TASK (Thêm/Sửa) ---
